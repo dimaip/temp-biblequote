@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'biblequote'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_biblequote_days">Calendar days</label>
+			<label index="tx_biblequote_days.date">date</label>
+			<label index="tx_biblequote_days.week">week</label>
+			<label index="tx_biblequote_days.saints">saints</label>
+			<label index="tx_biblequote_days.prazdnik">prazdnik</label>
+			<label index="tx_biblequote_days.post">post</label>
+			<label index="tx_biblequote_days.reading">reading</label>
+			<label index="tx_biblequote_days.prayers">prayers</label>
+			<label index="tt_content.list_type_pi1">calendar</label>
+			<label index="tt_content.list_type_pi2">bible</label>
+			<label index="tt_content.list_type_pi3">calendar_left</label>
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="tx_biblequote_days.week">Неделя</label>
+			<label index="tx_biblequote_days.saints">Святые дня</label>
+			<label index="tx_biblequote_days.prazdnik">Праздник</label>
+			<label index="tx_biblequote_days.post">Пост</label>
+			<label index="tx_biblequote_days.reading">Чтение</label>
+			<label index="tx_biblequote_days.prayers">Тропари и кондаки</label>
+			<label index="tt_content.list_type_pi2">Библия</label>
+			<label index="tt_content.list_type_pi3">Календарь(лево)</label>
+		</languageKey>
+	</data>
+</T3locallang>

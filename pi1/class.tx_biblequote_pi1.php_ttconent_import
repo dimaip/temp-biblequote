@@ -1,0 +1,48 @@
+<?php
+ini_set('display_errors', 1); 
+ini_set('log_errors', 1); 
+
+		
+require_once(PATH_tslib.'class.tslib_pibase.php');
+
+class tx_biblequote_pi1 extends tslib_pibase {
+	var $prefixId = 'tx_biblequote_pi1';		// Same as class name
+	var $scriptRelPath = 'pi1/class.tx_biblequote_pi1.php';	// Path to this script relative to the extension dir.
+	var $extKey = 'biblequote';	// The extension key.
+	
+	/**
+	 * The main method of the PlugIn
+	 *
+	 * @param	string		$content: The PlugIn content
+	 * @param	array		$conf: The PlugIn configuration
+	 * @return	The content that is displayed on the website
+	 */
+	function main($content,$conf)	{
+		if($_GET['sw']=='on'){
+			$res = $GLOBALS['TYPO3_DB']->exec_SELECT_mm_query("tt_news.pid,tt_news.title,tt_news.image,tt_news.short,tt_news.imagecaption", 'tt_news', 'tt_news_cat_mm', 'tt_news_cat', 'AND tt_news_cat.uid=11');
+			while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
+			unset($insertArray);
+				$insertArray = array(
+					'pid' => $row['pid'],
+					'header' =>  $row['title'],
+					'image' => $row['image'], //
+					'bodytext' => $row['short'], //
+					'imagecaption' => $row['imagecaption'], //
+					'altText' => $row['imagecaption'], //
+					'titleText' => $row['imagecaption'], //
+					'CType' => 'textpic', //
+					'crdate' => '1222222222',
+					'imagecols' => '1',
+					'imageorient' => '18',
+				);
+				
+				$GLOBALS['TYPO3_DB']->exec_INSERTquery('tt_content', $insertArray);
+				$out .= print_r($insertArray,1);
+			}
+		}
+	$out .= 'out';
+		return '<pre>'.$out.'</pre>';
+	}
+	
+}
+?>
